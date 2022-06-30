@@ -10,10 +10,10 @@ Serial.println("INFO: mounting LitteFS");
 }
 
 File Filesystem::open(const String &name) {
-    Serial.printf("INFO: reading '%s'\n", name);
+    Serial.printf("INFO: reading '%s'\n", name.c_str());
     File handle = LittleFS.open(name, "r");
     if (!handle) {
-        Serial.printf("ERROR: could not open '%s' for reading\n", name);
+        Serial.printf("ERROR: could not open '%s' for reading\n", name.c_str());
         halt();
     }
     return handle;
